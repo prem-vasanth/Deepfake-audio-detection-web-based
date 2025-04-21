@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.ipynb_checkpoints
+
+# Model files
+server/final-wav2vec2-model/
+*.safetensors
+*.bin
+
+# Node
+node_modules/
+.env
+dist/
+build/
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
