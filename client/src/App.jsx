@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import { BrowserRouter,Routes,Route,Link } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import Home from './components/Home'
 import DetectUpload from './components/DetectUpload'
 import DetectRecord from './components/DetectRecord'
@@ -10,26 +9,38 @@ import Spectro from './components/Spectro'
 
 function App() {
   return (
-      <BrowserRouter>
-    <div>
-      <nav>
-          <Link to="/">Home</Link>
-          <Link to="/DetectUpload"> Upload </Link>
-          <Link to="/DetectRecord">Record</Link>
-          <Link to="/SpectrogramCheck">Spectrogram</Link>
-          <Link to="/History">Logs</Link>
-      </nav>
-      <Routes>
-        <Route path="/" element={<Home/>}></Route>
-        <Route path="/DetectUpload" element={<DetectUpload/>}></Route>
-        <Route path="/DetectRecord" element={<DetectRecord/>}></Route>
-        <Route path="/SpectrogramCheck" element={<SpectrogramCheck/>}/>
-        <Route path="/History" element={<History/>}></Route>
-        <Route path="/classifyResult/:id" element={<ClassifyResult></ClassifyResult>}></Route>
-        <Route path="/spectro/:id" element={<Spectro/>}></Route>
-      </Routes>
-   </div>
-   </BrowserRouter>
+    <BrowserRouter>
+      <div className="min-h-screen bg-gray-50">
+        <nav className="bg-white shadow-md p-4 flex space-x-6">
+          <Link to="/" className="text-blue-600 hover:text-blue-800 font-semibold">
+            Home
+          </Link>
+          <Link to="/DetectUpload" className="text-blue-600 hover:text-blue-800 font-semibold">
+            Upload
+          </Link>
+          <Link to="/DetectRecord" className="text-blue-600 hover:text-blue-800 font-semibold">
+            Record
+          </Link>
+          <Link to="/SpectrogramCheck" className="text-blue-600 hover:text-blue-800 font-semibold">
+            Spectrogram
+          </Link>
+          <Link to="/History" className="text-blue-600 hover:text-blue-800 font-semibold">
+            Logs
+          </Link>
+        </nav>
+        <main className="p-6 max-w-7xl mx-auto">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/DetectUpload" element={<DetectUpload />} />
+            <Route path="/DetectRecord" element={<DetectRecord />} />
+            <Route path="/SpectrogramCheck" element={<SpectrogramCheck />} />
+            <Route path="/History" element={<History />} />
+            <Route path="/classifyResult/:id" element={<ClassifyResult />} />
+            <Route path="/spectro/:id" element={<Spectro />} />
+          </Routes>
+        </main>
+      </div>
+    </BrowserRouter>
   )
 }
 

@@ -37,16 +37,23 @@ function ClassifyResult() {
   ] : []
 
   return (
-    <div style={{ padding: '2rem' }}>
-      <h1>Classification Result</h1>
+    <div className="p-8 max-w-4xl mx-auto bg-white rounded-lg shadow-md">
+      <h1 className="text-3xl font-bold mb-6 text-gray-800">Classification Result</h1>
 
       {Res ? (
         <>
-          <p><strong>File Name:</strong> {Res.filename}</p>
-          <p><strong>Upload Time:</strong> {new Date(Res.upload_time).toLocaleString()}</p>
+          <p className="mb-2 text-gray-700">
+            <span className="font-semibold">File Name:</span> {Res.filename}
+          </p>
+          <p className="mb-6 text-gray-700">
+            <span className="font-semibold">Upload Time:</span> {new Date(Res.upload_time).toLocaleString()}
+          </p>
 
-          <h3>Audio Preview</h3>
-          <audio controls>
+          <h3 className="text-xl font-semibold mb-3 text-gray-800">Audio Preview</h3>
+          <audio
+            controls
+            className="w-full rounded-md border border-gray-300 mb-8 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
             <source
               src={`data:${Res.content_type};base64,${Res.audio_data_base64}`}
               type={Res.content_type}
@@ -54,21 +61,23 @@ function ClassifyResult() {
             Your browser does not support the audio element.
           </audio>
 
-          <h3 style={{ marginTop: '2rem' }}>Confidence Score</h3>
-          <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="label" />
-              <YAxis domain={[0, 100]} unit="%" />
-              <Tooltip />
-              <Bar dataKey="confidence" fill="#8884d8">
-                <LabelList dataKey="confidence" position="top" formatter={(value) => `${value}%`} />
-              </Bar>
-            </BarChart>
-          </ResponsiveContainer>
+          <h3 className="text-xl font-semibold mb-4 text-gray-800">Confidence Score</h3>
+          <div className="w-full h-72">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="label" tick={{ fill: '#4B5563', fontWeight: '600' }} />
+                <YAxis domain={[0, 100]} unit="%" tick={{ fill: '#4B5563', fontWeight: '600' }} />
+                <Tooltip />
+                <Bar dataKey="confidence" fill="#6366F1" /* Indigo-500 */>
+                  <LabelList dataKey="confidence" position="top" formatter={(value) => `${value}%`} />
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
         </>
       ) : (
-        <p>Loading...</p>
+        <p className="text-center text-gray-500 text-lg">Loading...</p>
       )}
     </div>
   )
