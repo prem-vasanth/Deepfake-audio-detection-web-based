@@ -1,0 +1,193 @@
+/* Smooth scrolling for anchor navigation */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scroll-based fade animation */
+.fade-element {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  pointer-events: none;
+}
+
+.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.fade-out {
+  opacity: 0;
+  transform: translateY(30px);
+  pointer-events: none;
+}
+
+/* Main container */
+.about-container {
+  background-color: #000000;
+  color: #e5e7eb;
+  padding: 3rem 5vw;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Heading styles */
+.about-container h1,
+.about-container h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+/* Paragraph text */
+.about-container p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  text-align: justify;
+  margin-bottom: 1rem;
+}
+
+/* List styling */
+.about-container ul {
+  padding-left: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.about-container li {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+}
+
+/* Emphasized text */
+.about-container b {
+  font-weight: bold;
+  color: #ffffff;
+}
+
+/* Team card container */
+.team-cards {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Flip card container */
+.flip-card {
+  width: 180px;
+  height: 250px;
+  perspective: 1000px;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.6s ease;
+  border-radius: 15px;
+}
+
+/* Border animation */
+.flip-card::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border: 3px solid white;
+  border-radius: 18px;
+  transition: transform 0.6s ease-in-out;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.flip-card.flipped::before {
+  transform: rotateY(180deg);
+}
+
+/* Scale on hover */
+.flip-card:hover {
+  transform: scale(1.05);
+}
+
+/* Flip inner content */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease-in-out;
+  transform-style: preserve-3d;
+  border-radius: 15px;
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Front & back faces */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background-color: #1C1C1C;
+  color: white;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-container {
+    padding: 2rem 1.5rem;
+  }
+
+  .about-container h1 {
+    font-size: 2rem;
+  }
+
+  .about-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .about-container p,
+  .about-container li {
+    font-size: 1rem;
+  }
+
+  .team-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .flip-card {
+    width: 250px;
+    height: 350px;
+    margin-bottom: 1.5rem;
+  }
+}
+.fade-in {
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}

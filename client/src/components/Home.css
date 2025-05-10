@@ -1,0 +1,137 @@
+/* Home.css */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Pure black background */
+}
+
+#root {
+    height: 100%;
+}
+
+body {
+    color: white;
+    font-family: 'Sansation', sans-serif;
+}
+
+/* Overall Page Styles */
+.home-container {
+    min-height: 100vh;
+    background-color: #000000; /* Pure black background */
+    color: #e5e7eb; /* Soft light gray text */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    text-align: center;
+    width: 100%; /* Ensure full width */
+    opacity: 0; /* Start invisible for fade-in effect */
+    animation: fadeInContainer 2s ease-in-out forwards; /* Fade-in effect for container */
+}
+
+/* Header */
+.home-header {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+    width: 100%; /* Ensure full width */
+    opacity: 0; /* Start invisible for fade-in effect */
+    animation: fadeInText 1.5s ease-in-out 0.5s forwards; /* Fade-in effect for header */
+}
+
+/* Paragraphs */
+.home-description {
+    text-align: justify; /* Justify text */
+    font-size: 1.125rem;
+    color: #e5e7eb; /* Soft light gray text */
+    margin-bottom: 1.5rem;
+    width: 100%;
+    line-height: 1.6;
+    display: inline-block;
+    opacity: 0; /* Start invisible for fade-in effect */
+    animation: fadeInText 1.5s ease-in-out 1s forwards; /* Fade-in effect for paragraphs */
+    filter: blur(4px); /* Initial blur effect */
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out; /* Smooth transition for scaling and blur */
+}
+
+/* Apply hover effect for the entire paragraph */
+.home-description:hover {
+    transform: scale(1.05); /* Magnifying effect on hover */
+    filter: blur(0); /* Remove blur on hover */
+}
+
+/* Floating Button Styles */
+.home-button {
+    background-color: transparent; /* Transparent background */
+    color: #ffffff; /* White text */
+    font-family: 'Sansation', sans-serif; /* Sansation font */
+    font-size: 1rem;
+    padding: 12px 30px; /* Adjust padding for a sleek look */
+    border: 2px solid #ffffff; /* White border */
+    border-radius: 8px; /* Slightly rounded corners, not too round */
+    text-transform: none; /* No capitalization */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+    text-decoration: none;
+    position: fixed; /* Fix position */
+    bottom: 20px; /* Distance from the bottom of the screen */
+    right: 20px; /* Distance from the right of the screen */
+    z-index: 999; /* Ensure it floats above other elements */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Floating shadow */
+    opacity: 0; /* Start invisible for fade-in effect */
+    animation: fadeInButton 2s ease-in-out 2s forwards; /* Fade-in effect for button */
+}
+
+/* Button on hover/focus */
+.home-button:hover,
+.home-button:focus {
+    background-color: rgba(255, 255, 255, 0.1); /* Slight white background on hover/focus */
+    color: #ffffff; /* Keep white text */
+    transform: scale(1.05); /* Slight scale effect on hover/focus */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Increased shadow on hover/focus */
+    outline: none; /* Remove the default focus outline */
+}
+
+/* Animations */
+@keyframes fadeInContainer {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInText {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInButton {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Media Queries for Mobile Optimization */
+@media (max-width: 768px) {
+    .home-header {
+        font-size: 2rem; /* Slightly smaller text for mobile */
+    }
+
+    .home-description {
+        font-size: 1rem; /* Adjust paragraph size for mobile */
+        padding: 0 1.5rem;
+    }
+}

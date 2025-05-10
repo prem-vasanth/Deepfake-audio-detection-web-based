@@ -1,0 +1,16 @@
+#start-button {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #4CAF50;
+  }
+  
+  #stop-button {
+    width: 100px;
+    height: 50px;
+    border-radius: 25px;
+    background-color: white;
+    border: 2px solid #f44336;
+    color: red;
+  }
+  

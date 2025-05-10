@@ -1,36 +1,46 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
-import Home from './components/Home'
-import DetectUpload from './components/DetectUpload'
-import DetectRecord from './components/DetectRecord'
-import SpectrogramCheck from './components/SpectrogramCheck'
-import History from './components/History'
-import ClassifyResult from './components/ClassifyResult'
-import Spectro from './components/Spectro'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import './App.css';
+import Home from './components/Home';
+import DetectUpload from './components/DetectUpload';
+import DetectRecord from './components/DetectRecord';
+import SpectrogramCheck from './components/SpectrogramCheck';
+import History from './components/History';
+import ClassifyResult from './components/ClassifyResult';
+import Spectro from './components/Spectro';
+import About from './components/About';
+import HowToUse from './components/HowToUse';
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-gray-50">
-        <nav className="bg-white shadow-md p-4 flex space-x-6">
-          <Link to="/" className="text-blue-600 hover:text-blue-800 font-semibold">
-            Home
-          </Link>
-          <Link to="/DetectUpload" className="text-blue-600 hover:text-blue-800 font-semibold">
-            Upload
-          </Link>
-          <Link to="/DetectRecord" className="text-blue-600 hover:text-blue-800 font-semibold">
-            Record
-          </Link>
-          <Link to="/SpectrogramCheck" className="text-blue-600 hover:text-blue-800 font-semibold">
-            Spectrogram
-          </Link>
-          <Link to="/History" className="text-blue-600 hover:text-blue-800 font-semibold">
-            Logs
-          </Link>
+      <div className="min-h-screen flex flex-col bg-black text-white">
+        {/* Navbar */}
+        <nav className="navbar flex space-x-6 p-4 bg-gray-900 shadow-md z-10 fixed w-full top-0">
+          {[
+            { to: "/", label: "Home" },
+            { to: "/About", label: "About" },
+            { to: "/HowToUse", label: "How to Use" },
+            { to: "/DetectUpload", label: "Upload" },
+            { to: "/DetectRecord", label: "Record" },
+            { to: "/SpectrogramCheck", label: "Spectrogram" },
+            { to: "/History", label: "Logs" },
+          ].map(({ to, label }) => (
+            <Link
+              key={to}
+              to={to}
+              className="text-white font-semibold transform hover:scale-110 transition-all duration-500 ease-in-out hover:text-blue-400"
+            >
+              {label}
+            </Link>
+          ))}
         </nav>
-        <main className="p-6 max-w-7xl mx-auto">
+
+        {/* Main Content */}
+        <main className="flex-grow pt-24 p-6 max-w-7xl mx-auto w-full">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/About" element={<About />} />
+            <Route path="/HowToUse" element={<HowToUse />} />
             <Route path="/DetectUpload" element={<DetectUpload />} />
             <Route path="/DetectRecord" element={<DetectRecord />} />
             <Route path="/SpectrogramCheck" element={<SpectrogramCheck />} />
@@ -41,7 +51,7 @@ function App() {
         </main>
       </div>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;
