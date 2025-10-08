@@ -297,5 +297,5 @@ In the split terminal present on the client side click on the local host link pr
 The website will look like shown in the figure below, browse through the various pages and follow the instructions in the page **How to Use** to start classifying audios.
 ![](images/preview.png)
 ### Authors
-[Velayudam Premvasanth Kumar](https://github.com/prem-vasanth)
-[Sai Avinash Bharadwaj Komaragiri](https://github.com/avik28)
+1. [Velayudam Premvasanth Kumar](https://github.com/prem-vasanth)
+2. [Sai Avinash Bharadwaj Komaragiri](https://github.com/avik28)
